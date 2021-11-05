@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="orderDAO" class="com.example.dao.OrderDAO"/>
+    <bean name="productDAO" class="com.example.dao.ProductDAO"/>
+
+    <bean name="orderService" class="com.example.service.OrderService">
+        <constructor-arg index="0" ref="orderDAO"/>
+        <constructor-arg index="1" ref="productDAO"/>
+    </bean>
+
+    <bean name="productService" class="com.example.service.ProductService">
+        <constructor-arg ref="productDAO"/>
+    </bean>
+
+</beans>
